@@ -1,4 +1,5 @@
 const graphQL = require('graphql')
+const MerchantMutationType = require('./merchantMutation')
 
 const {
 	GraphQLObjectType
@@ -6,9 +7,9 @@ const {
 
 const MutationType = new GraphQLObjectType({
 	name: 'MutationType',
-	fields: () => ({
-
-	})
+	fields: {
+		addMerchant: MerchantMutationType.addMerchant,
+	}
 })
 
 module.exports = MutationType
