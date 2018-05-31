@@ -3,7 +3,7 @@ const {
 	GraphQLSchema
 } = graphQL
 
-require('./merchantSchema')
+require('../models/merchantModel')
 require('./productSchema')
 
 const RootQueryType = require('../queries/rootQuery')

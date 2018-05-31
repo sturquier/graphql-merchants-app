@@ -17,6 +17,4 @@ const merchantSchema = new Schema({
 	}]
 })
 
-mongoose.model('merchant', merchantSchema)
-
 module.exports = merchantSchema
