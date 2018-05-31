@@ -4,7 +4,7 @@ const {
 } = graphQL
 
 require('../models/merchantModel')
-require('./productSchema')
+require('../schemas/productSchema')
 
 const RootQueryType = require('../queries/rootQuery')
 const MutationType = require('../mutations/rootMutation')
