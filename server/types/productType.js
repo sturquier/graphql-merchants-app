@@ -24,7 +24,6 @@ const ProductType = new GraphQLObjectType({
 					.then(product => {
 						return product.merchant
 					})
-				}
 			}
 		}
 	})
