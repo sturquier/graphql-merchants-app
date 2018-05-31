@@ -1,4 +1,5 @@
 const graphQL = require('graphql')
+const MerchantQueryType = require('./merchantQuery')
 
 const {
 	GraphQLObjectType
@@ -6,9 +7,9 @@ const {
 
 const RootQueryType = new GraphQLObjectType({
 	name: 'RootQueryType',
-	fields: () => ({
-
-	})
+	fields: {
+		merchants: MerchantQueryType.merchants,
+	}
 })
 
 module.exports = RootQueryType
