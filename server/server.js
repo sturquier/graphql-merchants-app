@@ -23,9 +23,9 @@ server.use('/graphql', expressGraphQL({
 	schema: schema
 }))
 
-const webpackMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const webpackConfig = require('../webpack.config.js');
-server.use(webpackMiddleware(webpack(webpackConfig)));
+const webpackMiddleware = require('webpack-dev-middleware')
+const webpack = require('webpack')
+const webpackConfig = require('../webpack.config.js')
+server.use(webpackMiddleware(webpack(webpackConfig)))
 
 module.exports = server
