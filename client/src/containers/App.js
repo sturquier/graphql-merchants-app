@@ -5,6 +5,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import MerchantsList from '../components/merchants/MerchantsList'
+import MerchantForm from '../components/merchants/MerchantForm'
 import MerchantDetails from '../components/merchants/MerchantDetails'
 import './App.css'
 
@@ -24,6 +25,7 @@ class App extends Component {
 							<Redirect to="/merchants"/>
 						)}/>
 						<Route exact path="/merchants" component={MerchantsList}/>
+						<Route exact path="/merchants/new" component={MerchantForm}/>
 						<Route exact path="/merchants/:id" component={MerchantDetails}/>
 					</Switch>
 				</HashRouter>

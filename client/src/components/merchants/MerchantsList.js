@@ -8,7 +8,15 @@ class MerchantsList extends Component {
 	render() {
 		return (
 			<div>
-				<h4>Merchants List</h4>
+				<div className="space-between">
+					<h4>Merchants List</h4>
+					<Link to="/merchants/new" id="add_merchant_btn" className="btn-floating waves-effect waves-light blue">
+						<i className="material-icons">add</i>
+					</Link>
+				</div>
+
+				<hr/>
+
 				<table className="table striped responsive-table">
 					<thead>
 						<tr>

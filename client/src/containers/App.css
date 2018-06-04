@@ -1,0 +1,8 @@
+.space-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+#add_merchant_btn {
+	margin-top: 25px;
+}
