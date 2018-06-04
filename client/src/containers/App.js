@@ -5,8 +5,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 import Home from './Home'
-import MerchantList from '../components/merchants/MerchantList'
-import ProductList from '../components/products/ProductList'
+import MerchantsList from '../components/merchants/MerchantsList'
+import ProductsList from '../components/products/ProductsList'
 import './App.css'
 
 const client = new ApolloClient({
@@ -22,8 +22,8 @@ class App extends Component {
 				<HashRouter>
 					<Switch>
 						<Route exact path="/" component={Home}/>
-						<Route exact path="/merchants" component={MerchantList}/>
-						<Route exact path="/products" component={ProductList}/>
+						<Route exact path="/merchants" component={MerchantsList}/>
+						<Route exact path="/products" component={ProductsList}/>
 					</Switch>
 				</HashRouter>
 			</ApolloProvider>
