@@ -3,6 +3,10 @@
 	justify-content: space-between;
 }
 
+.errors {
+	color: red;
+}
+
 #add_merchant_btn {
 	margin-top: 25px;
 }
