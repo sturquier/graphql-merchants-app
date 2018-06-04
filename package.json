@@ -1,5 +1,5 @@
 {
-  "name": "graphql-products-app",
+  "name": "graphql-merchants-app",
   "version": "1.0.0",
   "description": "Implementation of GraphQL & Node.JS (server) / React.JS & Apollo (client)",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sturquier/graphql-products-app.git"
+    "url": "git+https://github.com/sturquier/graphql-merchants-app.git"
   },
   "author": "Simon Turquier",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sturquier/graphql-products-app/issues"
+    "url": "https://github.com/sturquier/graphql-merchants-app/issues"
   },
-  "homepage": "https://github.com/sturquier/graphql-products-app#readme",
+  "homepage": "https://github.com/sturquier/graphql-merchants-app#readme",
   "dependencies": {
     "apollo-cache-inmemory": "^1.2.2",
     "apollo-client": "^2.3.2",

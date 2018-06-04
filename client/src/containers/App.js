@@ -3,10 +3,9 @@ import ApolloClient from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { HttpLink } from 'apollo-link-http'
-import { HashRouter, Switch, Route } from 'react-router-dom'
-import Home from './Home'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import MerchantsList from '../components/merchants/MerchantsList'
-import ProductsList from '../components/products/ProductsList'
+import MerchantDetails from '../components/merchants/MerchantDetails'
 import './App.css'
 
 const client = new ApolloClient({
@@ -21,9 +20,11 @@ class App extends Component {
 			<ApolloProvider client={client}>
 				<HashRouter>
 					<Switch>
-						<Route exact path="/" component={Home}/>
+						<Route exact path="/" render={() => (
+							<Redirect to="/merchants"/>
+						)}/>
 						<Route exact path="/merchants" component={MerchantsList}/>
-						<Route exact path="/products" component={ProductsList}/>
+						<Route exact path="/merchants/:id" component={MerchantDetails}/>
 					</Switch>
 				</HashRouter>
 			</ApolloProvider>

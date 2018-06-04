@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import { Link } from 'react-router-dom'
 import getMerchantsQuery from '../../queries/merchants/getMerchants'
 
 class MerchantsList extends Component {
@@ -14,7 +15,7 @@ class MerchantsList extends Component {
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Address</th>
-							<th>Products</th>
+							<th>Details</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -32,7 +33,11 @@ class MerchantsList extends Component {
 					<td>{merchant.firstName}</td>
 					<td>{merchant.lastName}</td>
 					<td>{merchant.address}</td>
-					<td>ADD LINK</td>
+					<td>
+						<Link to={`/merchants/${merchant.id}`}>
+							<i className="material-icons">find_in_page</i>
+						</Link>
+					</td>
 				</tr>)
 			})
 		} else {
