@@ -84,7 +84,23 @@ class ProductForm extends Component {
 	}
 
 	handleSubmitProductForm() {
-		console.log('Submitted')
+		this.props.addProductToMerchantMutation({
+			variables: {
+				name: this.state.name,
+				description: this.state.description,
+				price: this.state.price,
+				merchantId: this.props.match.params.id
+			},
+			refetchQueries: [{
+				query: getMerchantQuery,
+				variables: { id: this.props.match.params.id }
+			}]
+		}).then(() => {
+			this.props.history.push(`/merchants/${this.props.match.params.id}`)
+		}).catch((errors) => {
+			const errorMsgs = errors.graphQLErrors.map(err => err.message)
+			this.setState({errors: errorMsgs})
+		})
 	}
 
 	renderFormErrors() {
@@ -100,5 +116,8 @@ export default compose(
 				variables: { id: props.match.params.id }
 			}
 		}
+	}),
+	graphql(addProductToMerchantMutation, {
+		name: 'addProductToMerchantMutation'
 	})
 )(ProductForm)
