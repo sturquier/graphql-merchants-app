@@ -29,7 +29,7 @@ class MerchantDetails extends Component {
 
 					<section>
 						<h5>Products List</h5>
-						<ProductsList products={this.props.getMerchantQuery.merchant.products}/>
+						<ProductsList merchant_id={this.props.getMerchantQuery.merchant.id} products={this.props.getMerchantQuery.merchant.products}/>
 					</section>
 
 				</div>
