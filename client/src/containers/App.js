@@ -7,6 +7,7 @@ import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import MerchantsList from '../components/merchants/MerchantsList'
 import MerchantForm from '../components/merchants/MerchantForm'
 import MerchantDetails from '../components/merchants/MerchantDetails'
+import ProductForm from '../components/products/ProductForm'
 import './App.css'
 
 const client = new ApolloClient({
@@ -27,6 +28,7 @@ class App extends Component {
 						<Route exact path="/merchants" component={MerchantsList}/>
 						<Route exact path="/merchants/new" component={MerchantForm}/>
 						<Route exact path="/merchants/:id" component={MerchantDetails}/>
+						<Route exact path="/merchants/:id/product/new" component={ProductForm}/>
 					</Switch>
 				</HashRouter>
 			</ApolloProvider>

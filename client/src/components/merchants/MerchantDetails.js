@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import { Link } from 'react-router-dom'
 import getMerchantsQuery from '../../queries/merchants/getMerchants'
 import getMerchantQuery from '../../queries/merchants/getMerchant'
 import deleteMerchantMutation from '../../mutations/merchants/deleteMerchant'
@@ -27,8 +28,15 @@ class MerchantDetails extends Component {
 						<p><h6>Address : </h6>{this.props.getMerchantQuery.merchant.address}</p>
 					</section>
 
+					<hr/>
+
 					<section>
-						<h5>Products List</h5>
+						<div className="space-between">
+							<h5>Products List</h5>
+							<Link to={`/merchants/${this.props.getMerchantQuery.merchant.id}/product/new`} id="add_product_btn" className="btn-floating waves-effect waves-light blue">
+								<i className="material-icons">add</i>
+							</Link>
+						</div>
 						<ProductsList merchant_id={this.props.getMerchantQuery.merchant.id} products={this.props.getMerchantQuery.merchant.products}/>
 					</section>
 

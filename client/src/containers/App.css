@@ -16,6 +16,10 @@
 	cursor: pointer;
 }
 
+#add_product_btn {
+	margin-top: 10px;
+}
+
 #delete_product_btn {
 	cursor: pointer;
 }
