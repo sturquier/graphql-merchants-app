@@ -33,6 +33,21 @@ merchantSchema.statics.addProductToMerchant = function(merchantId, name, descrip
 	})
 }
 
+/**
+ *	Pre-save hook. Mongoose middleware
+ */
+merchantSchema.pre('save', function(done) {
+	if (!this.firstName) {
+		done(new Error('Please fill in the first name'))
+	} else if (!this.lastName) {
+		done(new Error('Please fill in the last name'))
+	} else if (!this.address) {
+		done(new Error('Please fill in the address'))
+	} else {
+		done()
+	}
+})
+
 mongoose.model('merchant', merchantSchema)
 
 module.exports = merchantSchema
