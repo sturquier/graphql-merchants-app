@@ -18,6 +18,4 @@ const productSchema = new Schema({
 	}
 })
 
-mongoose.model('product', productSchema)
-
 module.exports = productSchema
