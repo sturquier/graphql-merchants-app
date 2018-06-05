@@ -3,6 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import getMerchantsQuery from '../../queries/merchants/getMerchants'
 import getMerchantQuery from '../../queries/merchants/getMerchant'
 import deleteMerchantMutation from '../../mutations/merchants/deleteMerchant'
+import ProductsList from '../products/ProductsList'
 
 class MerchantDetails extends Component {
 
@@ -20,9 +21,17 @@ class MerchantDetails extends Component {
 
 					<hr/>
 
-					<p>First Name : {this.props.getMerchantQuery.merchant.firstName}</p>
-					<p>Last Name : {this.props.getMerchantQuery.merchant.firstName}</p>
-					<p>Address : {this.props.getMerchantQuery.merchant.address}</p>
+					<section>
+						<p><h6>First Name : </h6>{this.props.getMerchantQuery.merchant.firstName}</p>
+						<p><h6>Last Name : </h6>{this.props.getMerchantQuery.merchant.lastName}</p>
+						<p><h6>Address : </h6>{this.props.getMerchantQuery.merchant.address}</p>
+					</section>
+
+					<section>
+						<h5>Products List</h5>
+						<ProductsList products={this.props.getMerchantQuery.merchant.products}/>
+					</section>
+
 				</div>
 			)
 		}
