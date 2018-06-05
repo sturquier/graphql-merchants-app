@@ -10,3 +10,8 @@
 #add_merchant_btn {
 	margin-top: 25px;
 }
+
+#delete_merchant_btn {
+	margin-top: 30px;
+	cursor: pointer;
+}

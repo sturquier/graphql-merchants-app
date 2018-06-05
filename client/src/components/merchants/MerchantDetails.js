@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { graphql, compose } from 'react-apollo'
+import getMerchantsQuery from '../../queries/merchants/getMerchants'
 import getMerchantQuery from '../../queries/merchants/getMerchant'
+import deleteMerchantMutation from '../../mutations/merchants/deleteMerchant'
 
 class MerchantDetails extends Component {
 
@@ -11,9 +13,11 @@ class MerchantDetails extends Component {
 		} else {
 			return (
 				<div>
-					<h4>
-						Details of {this.props.getMerchantQuery.merchant.firstName} {this.props.getMerchantQuery.merchant.lastName}
-					</h4>
+					<div className="space-between">
+						<h4>Details of {this.props.getMerchantQuery.merchant.firstName} {this.props.getMerchantQuery.merchant.lastName}</h4>
+						<i id="delete_merchant_btn" className="material-icons secondary-content" onClick={() => this.handleDeleteMerchant()}>delete</i>						
+					</div>
+
 					<hr/>
 
 					<p>First Name : {this.props.getMerchantQuery.merchant.firstName}</p>
@@ -22,6 +26,15 @@ class MerchantDetails extends Component {
 				</div>
 			)
 		}
+	}
+
+	handleDeleteMerchant() {
+		this.props.deleteMerchantMutation({
+			variables: { id: this.props.match.params.id },
+			refetchQueries: [{query: getMerchantsQuery}]
+		}).then(() => {
+			this.props.history.push('/merchants')
+		})
 	}
 }
 
@@ -33,5 +46,8 @@ export default compose(
 				variables: { id: props.match.params.id }
 			}
 		}
+	}),
+	graphql(deleteMerchantMutation, {
+		name: 'deleteMerchantMutation'
 	})
 )(MerchantDetails)
